@@ -5,7 +5,9 @@ class Results extends Component {
 	render() {
 		const RESULTS = this.props.results.map((request, ind) => {
 			let value = request.map((val, ind) => {
-				return <p key={ind}>{val}<br /></p>;
+				let twoVal = val.split(': ');
+
+				return <p key={ind}><span className='bold-value'>{twoVal[0]}: </span>{twoVal[1]}<br /></p>;
 			});
 
 			return <div className='request' key={ind}>{value}<br /></div>;

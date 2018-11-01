@@ -7,5 +7,7 @@ html, body {
 
 body {
 	font-family: sans-serif;
+	color: white;
   text-align: center;
+  background-color: #111;
 }
