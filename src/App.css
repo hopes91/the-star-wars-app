@@ -1,0 +1,13 @@
+.app-buttons {
+	display: grid;
+	grid-template-columns: repeat(6, 5.7em);
+	grid-template-rows: repeat(1, auto);
+	justify-content: center;
+}
+
+@media screen and (max-width: 640px) {
+	.app-buttons {
+		grid-template-columns: repeat(3, 5.7em);
+		grid-template-rows: repeat(2, auto);
+	}
+}

@@ -131,7 +131,6 @@ class App extends Component {
 				});
 
 				this.setState({ results: resultsArr });
-				console.log(this.state.results);
 			});
 	}
 
@@ -143,7 +142,7 @@ class App extends Component {
 		return (
 			<div className='app'>
 				<h1 className='app-name'>The Star Wars App</h1>
-				{BUTTONS}
+				<div className='app-buttons'>{BUTTONS}</div>
 				<Results results={this.state.results}/>
 			</div>
 		);
