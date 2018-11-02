@@ -142,7 +142,12 @@ class App extends Component {
 			<div className='app'>
 				<h1 className='app-name'>The Star Wars App</h1>
 				<div className='app-buttons'>{BUTTONS}</div>
-				<Results results={this.state.results}/>
+				<Results results={this.state.results.sort((a, b) => {
+					let aVal = Number(a[a.length - 1].replace(/[^0-9]/gi, ''));
+					let bVal = Number(b[b.length - 1].replace(/[^0-9]/gi, ''));
+					
+					return aVal > bVal ? 1 : -1;
+				})}/>
 			</div>
 		);
 	}
