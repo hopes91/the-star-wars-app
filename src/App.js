@@ -11,10 +11,10 @@ class App extends Component {
 			requestNames: ['films', 'people', 'planets', 'species', 'starships', 'vehicles']
 		}
 
-		this.getResults = this.getResults.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
-	getResults(event) {
+	handleClick(event) {
 		const URLS = [
 			{'films': 'https://swapi.co/api/films/'}, 
 			{'people': 'https://swapi.co/api/people/'}, 
@@ -24,14 +24,14 @@ class App extends Component {
 			{'vehicles': 'https://swapi.co/api/vehicles/'}
 		];
 
-		let clickedButton = event.target.id, 
+		let clickedButtonId = event.target.id, 
 				url, 
 				dataObj, 
 				resultsArr = [];
 
 		URLS.forEach(obj => {
 			Object.keys(obj).forEach(val => {
-				if (clickedButton === val) {
+				if (clickedButtonId === val) {
 					url = obj[val];
 				}
 			});
@@ -44,7 +44,7 @@ class App extends Component {
 
 				dataObj.forEach(obj => {
 					Object.keys(obj).forEach((val, ind) => {
-						if (clickedButton === 'films') {
+						if (clickedButtonId === 'films') {
 							let title = `title: ${obj['title']}`, 
 									openingCrawl = `opening crawl: ${obj['opening_crawl']}`,
 									director = `director: ${obj['director']}`, 
@@ -54,7 +54,7 @@ class App extends Component {
 							if (ind === 13) {
 								resultsArr.push([title, openingCrawl, director, producer, releaseDate]);
 							}
-						} else if (clickedButton === 'people') {
+						} else if (clickedButtonId === 'people') {
 								let name = `name: ${obj['name']}`, 
 										gender = `gender: ${obj['gender']}`, 
 										birthYear = `birth year: ${obj['birth_year']}`, 
@@ -66,7 +66,7 @@ class App extends Component {
 								if (ind === 15) {
 									resultsArr.push([name, gender, birthYear, skinColor, hairColor, eyeColor, height]);
 								}
-						} else if (clickedButton === 'planets') {
+						} else if (clickedButtonId === 'planets') {
 								let name = `name: ${obj['name']}`, 
 										climate = `climate: ${obj['climate']}`, 
 										diameter = `diameter: ${obj['diameter']}`, 
@@ -80,7 +80,7 @@ class App extends Component {
 								if (ind === 13) {
 									resultsArr.push([name, climate, diameter, gravity, orbitalPeriod, rotationPeriod, surfaceWater, terrain, population]);
 								}
-						} else if (clickedButton === 'species') {
+						} else if (clickedButtonId === 'species') {
 								let name = `name: ${obj['name']}`, 
 										averageLifespan = `average lifespan: ${obj['average_lifespan']}`, 
 										classification = `classification: ${obj['classification']}`, 
@@ -94,7 +94,7 @@ class App extends Component {
 								if (ind === 14) {
 									resultsArr.push([name, averageLifespan, classification, designation, language, skinColors, hairColors, eyeColors, averageHeight]);
 								}
-						} else if (clickedButton === 'starships') {
+						} else if (clickedButtonId === 'starships') {
 								let name = `name: ${obj['name']}`, 
 										starshipClass = `starship class: ${obj['starship_class']}`, 
 										model = `model: ${obj['model']}`, 
@@ -110,7 +110,7 @@ class App extends Component {
 								if (ind === 17) {
 									resultsArr.push([name, starshipClass, model, cargoCapacity, consumables, crew, hyperdriveRating, length, manufacturer, maxAtmospheringSpeed, passengers]);
 								}
-						} else if (clickedButton === 'vehicles') {
+						} else if (clickedButtonId === 'vehicles') {
 								let name = `name: ${obj['name']}`, 
 										vehicleClass = `vehicle class: ${obj['vehicle_class']}`, 
 										model = `model: ${obj['model']}`, 
@@ -135,7 +135,7 @@ class App extends Component {
 
 	render() {
 		const BUTTONS = this.state.requestNames.map((name, ind) => {
-			return <button type='button' id={name} key={ind} onClick={this.getResults}>{name}</button>;
+			return <button type='button' id={name} key={ind} onClick={this.handleClick}>{name}</button>;
 		});
 
 		return (
