@@ -15,6 +15,19 @@ class App extends Component {
 	}
 
 	handleClick(event) {
+		let clickedButton = event.target;
+		let clickedButtonId = event.target.id;
+		let url;
+		let dataObj;
+		let resultsArr = [];
+
+		if (clickedButton.className === '') {
+			clickedButton.classList.add('button-clicked');
+			setTimeout(function() {
+				clickedButton.classList.remove('button-clicked');
+			}, 1500);
+		}
+
 		const URLS = [
 			{'films': 'https://swapi.co/api/films/'}, 
 			{'people': 'https://swapi.co/api/people/'}, 
@@ -23,11 +36,6 @@ class App extends Component {
 			{'starships': 'https://swapi.co/api/starships/'}, 
 			{'vehicles': 'https://swapi.co/api/vehicles/'}
 		];
-
-		let clickedButtonId = event.target.id, 
-				url, 
-				dataObj, 
-				resultsArr = [];
 
 		URLS.forEach(obj => {
 			Object.keys(obj).forEach(val => {

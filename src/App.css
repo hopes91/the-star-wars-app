@@ -42,14 +42,14 @@ button {
 	cursor: pointer;
 }
 
-/*button:hover {
+.button-clicked {
 	background-color: #262626;
 	-webkit-transform: translateY(0.05em);
 	-moz-transform: translateY(0.05em);
 	-o-transform: translateY(0.05em);
 	-ms-transform: translateY(0.05em);
 	transform: translateY(0.05em);
-}*/
+}
 
 @media screen and (max-width: 800px) {
 	.app-name {
