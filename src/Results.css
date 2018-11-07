@@ -7,7 +7,7 @@
 	padding: 1.5em;
 	font-family: 'Space Mono', monospace;
 	text-align: left;
-	border: 3px solid white;
+	border: 1px solid white;
 	box-shadow: inset -1px -1px 2px white, inset 1px 1px 2px white;
 	box-sizing: border-box;
 }

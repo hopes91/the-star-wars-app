@@ -39,7 +39,17 @@ button {
 	border: 2px solid yellow;
 	box-shadow: 2px 2px yellow;
 	outline: none;
+	cursor: pointer;
 }
+
+/*button:hover {
+	background-color: #262626;
+	-webkit-transform: translateY(0.05em);
+	-moz-transform: translateY(0.05em);
+	-o-transform: translateY(0.05em);
+	-ms-transform: translateY(0.05em);
+	transform: translateY(0.05em);
+}*/
 
 @media screen and (max-width: 800px) {
 	.app-name {
@@ -66,7 +76,8 @@ button {
 	}
 
 	.app-buttons {
-		grid-column-gap: 0.3em;
+		grid-row-gap: 0.8em;
+		grid-column-gap: 0;
 	}
 
 	button {
