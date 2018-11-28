@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Buttons from './Buttons';
 import Results from './Results';
 
 class App extends Component {
@@ -142,14 +143,10 @@ class App extends Component {
 	}
 
 	render() {
-		const BUTTONS = this.state.requestNames.map((name, ind) => {
-			return <button type='button' id={name} key={ind} onClick={this.handleClick}>{name}</button>;
-		});
-
 		return (
 			<div className='app'>
 				<h1 className='app-name'>The Star Wars App</h1>
-				<div className='app-buttons'>{BUTTONS}</div>
+				<Buttons requestNames={this.state.requestNames} handleClick={this.handleClick} />
 				<Results results={this.state.results.sort((a, b) => {
 					let aVal = Number(a[a.length - 1].replace(/[^0-9]/gi, ''));
 					let bVal = Number(b[b.length - 1].replace(/[^0-9]/gi, ''));

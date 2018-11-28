@@ -1,0 +1,50 @@
+.app-buttons {
+  display: grid;
+  grid-template-columns: repeat(6, 6em);
+  grid-template-rows: repeat(1, auto);
+  justify-content: center;
+  justify-items: center;
+  grid-row-gap: 1em;
+  grid-column-gap: 0.7em;
+}
+
+button {
+  width: 5.7em;
+  height: 2.7em;
+  font-size: 1em;
+  color: white;
+  background-color: black;
+  border: 2px solid yellow;
+  box-shadow: 2px 2px yellow;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-clicked {
+  background-color: #262626;
+  -webkit-transform: translateY(0.05em);
+  -moz-transform: translateY(0.05em);
+  -o-transform: translateY(0.05em);
+  -ms-transform: translateY(0.05em);
+  transform: translateY(0.05em);
+}
+
+@media screen and (max-width: 800px) {
+  .app-buttons {
+    grid-template-columns: repeat(3, 6em);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .app-buttons {
+    grid-row-gap: 0.8em;
+    grid-column-gap: 0;
+  }
+
+  button {
+    width: 5.2em;
+    height: 2.3em;
+    font-size: 0.95em;
+  }
+}
