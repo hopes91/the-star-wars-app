@@ -14,6 +14,7 @@ class App extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.showClickedButton = this.showClickedButton.bind(this);
+    this.changeAppNameSize = this.changeAppNameSize.bind(this);
   }
 
   handleClick(event) {
@@ -148,6 +149,20 @@ class App extends Component {
         clickedButton.classList.remove('button-clicked');
       }, 1300);
     }
+  }
+
+  changeAppNameSize() {
+    const appName = document.querySelector('.app-name');
+
+    if (window.innerWidth < 641) {
+      appName.innerHTML = 'The<br />Star Wars<br />App';
+    } else {
+      appName.innerHTML = 'The Star Wars App';
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.changeAppNameSize);
   }
 
   render() {
