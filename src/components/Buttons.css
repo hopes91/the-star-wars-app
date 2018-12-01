@@ -21,7 +21,7 @@ button {
 }
 
 .button-clicked {
-  background-color: #262626;
+  background-color: #111;
   -webkit-transform: translateY(0.05em);
   -moz-transform: translateY(0.05em);
   -o-transform: translateY(0.05em);

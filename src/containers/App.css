@@ -1,0 +1,37 @@
+﻿/* @font-face kit by Fonts2u (https://fonts2u.com) */
+@font-face {
+  font-family: 'STARWARS';
+  src: url('../STARWARS.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.app {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.app-name {
+  margin: 0;
+  padding: 1em 0;
+  font-family: 'STARWARS';
+  color: gold;
+  font-size: 3em;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-shadow: 1px 1px yellow;
+}
+
+@media screen and (max-width: 800px) {
+  .app-name {
+    font-size: 2.5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .app-name {
+    font-size: 2.2em;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Buttons from './Buttons';
-import Results from './Results';
+import Buttons from '../components/Buttons';
+import Results from '../components/Results';
 
 class App extends Component {
   constructor(props) {

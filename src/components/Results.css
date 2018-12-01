@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+
+.app-results {
+  width: 70%;
+  min-height: 20em;
+  margin: 2em auto;
+  padding: 1.5em;
+  font-family: 'Space Mono', monospace;
+  text-align: left;
+  border: 1px solid white;
+  box-shadow: inset -1px -1px 2px white, inset 1px 1px 2px white;
+  box-sizing: border-box;
+}
+
+.app-results p {
+  margin: 0.5em 0;
+}
+
+.bold-value {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+  .app-results {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .app-results {
+    width: 90%;
+  }
+}
