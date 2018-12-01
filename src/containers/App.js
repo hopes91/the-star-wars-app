@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import AppName from '../components/AppName';
 import Buttons from '../components/Buttons';
 import Results from '../components/Results';
 
@@ -8,24 +9,22 @@ class App extends Component {
     super(props);
 
     this.state = {
-      results: [], 
-      requestNames: ['films', 'people', 'planets', 'species', 'starships', 'vehicles']
+      results: []
     }
 
     this.handleClick = this.handleClick.bind(this);
     this.showClickedButton = this.showClickedButton.bind(this);
-    this.changeAppNameSize = this.changeAppNameSize.bind(this);
   }
 
   handleClick(event) {
-    const clickedButton = event.target;
-    let url;
-    let dataObj;
-    let resultsArr = [];
-
     this.showClickedButton(event);
 
-    const URLS = [
+    let clickedButton = event.target;
+    let url;
+    let dataObj;
+    let singleResultsArr = [];
+    
+    let URLS = [
       {'films': 'https://swapi.co/api/films/'}, 
       {'people': 'https://swapi.co/api/people/'}, 
       {'planets': 'https://swapi.co/api/planets/'}, 
@@ -50,98 +49,98 @@ class App extends Component {
       dataObj.forEach(obj => {
         Object.keys(obj).forEach((val, ind) => {
           if (clickedButton.id === 'films') {
-            const title = `title: ${obj['title']}`;
-            const openingCrawl = `opening crawl: ${obj['opening_crawl']}`;
-            const director = `director: ${obj['director']}`;
-            const producer = `producer: ${obj['producer']}`;
-            const releaseDate = `release date: ${obj['release_date']}`;
+            let title = `title: ${obj['title']}`;
+            let openingCrawl = `opening crawl: ${obj['opening_crawl']}`;
+            let director = `director: ${obj['director']}`;
+            let producer = `producer: ${obj['producer']}`;
+            let releaseDate = `release date: ${obj['release_date']}`;
 
             if (ind === 13) {
-              resultsArr.push([title, openingCrawl, director, producer, releaseDate]);
+              singleResultsArr.push([title, openingCrawl, director, producer, releaseDate]);
             }
           } else if (clickedButton.id === 'people') {
-            const name = `name: ${obj['name']}`;
-            const gender = `gender: ${obj['gender']}`;
-            const birthYear = `birth year: ${obj['birth_year']}`;
-            const skinColor = `skin color: ${obj['skin_color']}`;
-            const hairColor = `hair color: ${obj['hair_color']}`;
-            const eyeColor = `eye color: ${obj['eye_color']}`;
-            const height = `height: ${obj['height']}`;
+            let name = `name: ${obj['name']}`;
+            let gender = `gender: ${obj['gender']}`;
+            let birthYear = `birth year: ${obj['birth_year']}`;
+            let skinColor = `skin color: ${obj['skin_color']}`;
+            let hairColor = `hair color: ${obj['hair_color']}`;
+            let eyeColor = `eye color: ${obj['eye_color']}`;
+            let height = `height: ${obj['height']}`;
 
             if (ind === 15) {
-              resultsArr.push([name, gender, birthYear, skinColor, hairColor, eyeColor, height]);
+              singleResultsArr.push([name, gender, birthYear, skinColor, hairColor, eyeColor, height]);
             }
           } else if (clickedButton.id === 'planets') {
-            const name = `name: ${obj['name']}`;
-            const climate = `climate: ${obj['climate']}`;
-            const diameter = `diameter: ${obj['diameter']}`;
-            const gravity = `gravity: ${obj['gravity']}`;
-            const orbitalPeriod = `orbital period: ${obj['orbital_period']}`;
-            const rotationPeriod = `rotation period: ${obj['rotation_period']}`;
-            const surfaceWater = `surface water: ${obj['surface_water']}`;
-            const terrain = `terrain: ${obj['terrain']}`;
-            const population = `population: ${obj['population']}`;
+            let name = `name: ${obj['name']}`;
+            let climate = `climate: ${obj['climate']}`;
+            let diameter = `diameter: ${obj['diameter']}`;
+            let gravity = `gravity: ${obj['gravity']}`;
+            let orbitalPeriod = `orbital period: ${obj['orbital_period']}`;
+            let rotationPeriod = `rotation period: ${obj['rotation_period']}`;
+            let surfaceWater = `surface water: ${obj['surface_water']}`;
+            let terrain = `terrain: ${obj['terrain']}`;
+            let population = `population: ${obj['population']}`;
 
             if (ind === 13) {
-              resultsArr.push([name, climate, diameter, gravity, orbitalPeriod, rotationPeriod, surfaceWater, terrain, population]);
+              singleResultsArr.push([name, climate, diameter, gravity, orbitalPeriod, rotationPeriod, surfaceWater, terrain, population]);
             }
           } else if (clickedButton.id === 'species') {
-            const name = `name: ${obj['name']}`;
-            const averageLifespan = `average lifespan: ${obj['average_lifespan']}`;
-            const classification = `classification: ${obj['classification']}`;
-            const designation = `designation: ${obj['designation']}`;
-            const language = `language: ${obj['language']}`;
-            const skinColors = `skin colors: ${obj['skin_colors']}`;
-            const hairColors = `hair colors: ${obj['hair_colors']}`;
-            const eyeColors = `eye colors: ${obj['eye_colors']}`;
-            const averageHeight = `average height: ${obj['average_height']}`;
+            let name = `name: ${obj['name']}`;
+            let averageLifespan = `average lifespan: ${obj['average_lifespan']}`;
+            let classification = `classification: ${obj['classification']}`;
+            let designation = `designation: ${obj['designation']}`;
+            let language = `language: ${obj['language']}`;
+            let skinColors = `skin colors: ${obj['skin_colors']}`;
+            let hairColors = `hair colors: ${obj['hair_colors']}`;
+            let eyeColors = `eye colors: ${obj['eye_colors']}`;
+            let averageHeight = `average height: ${obj['average_height']}`;
 
             if (ind === 14) {
-              resultsArr.push([name, averageLifespan, classification, designation, language, skinColors, hairColors, eyeColors, averageHeight]);
+              singleResultsArr.push([name, averageLifespan, classification, designation, language, skinColors, hairColors, eyeColors, averageHeight]);
             }
           } else if (clickedButton.id === 'starships') {
-            const name = `name: ${obj['name']}`;
-            const starshipClass = `starship class: ${obj['starship_class']}`;
-            const model = `model: ${obj['model']}`;
-            const cargoCapacity = `cargo capacity: ${obj['cargo_capacity']}`;
-            const consumables = `consumables: ${obj['consumables']}`;
-            const crew = `crew: ${obj['crew']}`;
-            const hyperdriveRating = `hyperdrive rating: ${obj['hyperdrive_rating']}`;
-            const length = `length: ${obj['length']}`;
-            const manufacturer = `manufacturer: ${obj['manufacturer']}`;
-            const maxAtmospheringSpeed = `max atmosphering speed: ${obj['max_atmosphering_speed']}`;
-            const passengers = `passengers: ${obj['passengers']}`;
+            let name = `name: ${obj['name']}`;
+            let starshipClass = `starship class: ${obj['starship_class']}`;
+            let model = `model: ${obj['model']}`;
+            let cargoCapacity = `cargo capacity: ${obj['cargo_capacity']}`;
+            let consumables = `consumables: ${obj['consumables']}`;
+            let crew = `crew: ${obj['crew']}`;
+            let hyperdriveRating = `hyperdrive rating: ${obj['hyperdrive_rating']}`;
+            let length = `length: ${obj['length']}`;
+            let manufacturer = `manufacturer: ${obj['manufacturer']}`;
+            let maxAtmospheringSpeed = `max atmosphering speed: ${obj['max_atmosphering_speed']}`;
+            let passengers = `passengers: ${obj['passengers']}`;
 
             if (ind === 17) {
-              resultsArr.push([name, starshipClass, model, cargoCapacity, consumables, crew, hyperdriveRating, length, manufacturer, maxAtmospheringSpeed, passengers]);
+              singleResultsArr.push([name, starshipClass, model, cargoCapacity, consumables, crew, hyperdriveRating, length, manufacturer, maxAtmospheringSpeed, passengers]);
             }
           } else if (clickedButton.id === 'vehicles') {
-            const name = `name: ${obj['name']}`;
-            const vehicleClass = `vehicle class: ${obj['vehicle_class']}`;
-            const model = `model: ${obj['model']}`;
-            const cargoCapacity = `cargo capacity: ${obj['cargo_capacity']}`;
-            const consumables = `consumables: ${obj['consumables']}`;
-            const crew = `crew: ${obj['crew']}`;
-            const length = `length: ${obj['length']}`;
-            const manufacturer = `manufacturer: ${obj['manufacturer']}`;
-            const maxAtmospheringSpeed = `max atmosphering speed: ${obj['max_atmosphering_speed']}`;
-            const passengers = `passengers: ${obj['passengers']}`;
+            let name = `name: ${obj['name']}`;
+            let vehicleClass = `vehicle class: ${obj['vehicle_class']}`;
+            let model = `model: ${obj['model']}`;
+            let cargoCapacity = `cargo capacity: ${obj['cargo_capacity']}`;
+            let consumables = `consumables: ${obj['consumables']}`;
+            let crew = `crew: ${obj['crew']}`;
+            let length = `length: ${obj['length']}`;
+            let manufacturer = `manufacturer: ${obj['manufacturer']}`;
+            let maxAtmospheringSpeed = `max atmosphering speed: ${obj['max_atmosphering_speed']}`;
+            let passengers = `passengers: ${obj['passengers']}`;
 
             if (ind === 15) {
-              resultsArr.push([name, vehicleClass, model, cargoCapacity, consumables, crew, length, manufacturer, maxAtmospheringSpeed, passengers]);
+              singleResultsArr.push([name, vehicleClass, model, cargoCapacity, consumables, crew, length, manufacturer, maxAtmospheringSpeed, passengers]);
             }
           }
         });
       });
 
       this.setState({
-        results: resultsArr
+        results: singleResultsArr
       });
     });
   }
 
   showClickedButton(event) {
-    const clickedButton = event.target;
+    let clickedButton = event.target;
 
     if (clickedButton.className === '') {
       clickedButton.classList.add('button-clicked');
@@ -151,31 +150,12 @@ class App extends Component {
     }
   }
 
-  changeAppNameSize() {
-    const appName = document.querySelector('.app-name');
-
-    if (window.innerWidth < 641) {
-      appName.innerHTML = 'The<br />Star Wars<br />App';
-    } else {
-      appName.innerHTML = 'The Star Wars App';
-    }
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.changeAppNameSize);
-  }
-
   render() {
     return (
       <div className='app'>
-        <h1 className='app-name'>The Star Wars App</h1>
-        <Buttons requestNames={this.state.requestNames} handleClick={this.handleClick} />
-        <Results results={this.state.results.sort((a, b) => {
-          let aVal = Number(a[a.length - 1].replace(/[^0-9]/gi, ''));
-          let bVal = Number(b[b.length - 1].replace(/[^0-9]/gi, ''));
-          
-          return aVal > bVal ? 1 : -1;
-        })}/>
+        <AppName />
+        <Buttons handleClick={this.handleClick} />
+        <Results results={this.state.results} />
       </div>
     );
   }
